@@ -10,7 +10,7 @@ const HomePage = async () => {
   const randomAnime = await getRandomAnime()
 
   return (
-    <div className="mx-10">
+    <div className="mx-10 mt-20">
       <div className="max-h-screen">
         <Carouselhome data={topAnime}/>
       </div>

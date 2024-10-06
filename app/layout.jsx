@@ -10,7 +10,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`font-neu antialiased px-8 py-5`}>
+      <body className={`font-neu antialiased px-8 pt-5`}>
         <NavigationBar />
         {children}
       </body>

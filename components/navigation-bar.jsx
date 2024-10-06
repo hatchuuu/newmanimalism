@@ -1,15 +1,13 @@
+import Link from "next/link"
+import Search from "./search"
 
 const NavigationBar = () => {
     return (
-        <div className="navbar bg-base-100">
-            <div className="flex-1">
-                <a className="btn btn-ghost text-xl text-blue-50">MANIMALISM</a>
-            </div>
-            <div className="flex-none gap-2">
-                <div className="form-control">
-                    <input type="text" placeholder="Search" className="input input-bordered w-24 md:w-auto" />
-                </div>
-                <div className="dropdown dropdown-end">
+        <div className="navbar justify-between bg-base-100 fixed z-10 py-5 top-0 ps-6 pe-[76px]">
+            <Link href="/" className="btn btn-ghost text-xl text-blue-50">MANIMALISM</Link>
+            <div className="flex gap-2 w-1/2 justify-end">
+                <Search/>
+                {/* <div className="dropdown dropdown-end">
                     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                         <div className="w-10 rounded-full">
                             <img
@@ -29,7 +27,7 @@ const NavigationBar = () => {
                         <li><a>Settings</a></li>
                         <li><a>Logout</a></li>
                     </ul>
-                </div>
+                </div> */}
             </div>
         </div>
     )

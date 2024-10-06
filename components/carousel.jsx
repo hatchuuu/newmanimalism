@@ -1,73 +1,76 @@
 "use client"
 import Image from "next/image"
 import Link from "next/link"
-import clsx from "clsx"
+import { IoChevronForwardOutline, IoChevronBackOutline, IoChevronForwardCircleOutline } from "react-icons/io5"
 import { useState } from "react"
 
 const Carousel = ({ data, label, link }) => {
-    const [translateX, setTranslateX] = useState(0); // State to track the translation position
-    const itemWidth = 184; // Width of each item
-    const maxTranslateX = -(itemWidth * (data?.length - 6)); // Maximum translation (for 4 visible items)
+    const [curr, setCurr] = useState(0)
 
-    const handleNext = () => {
-        if (translateX > maxTranslateX) {
-            setTranslateX((prev) => prev - itemWidth); // Translate left
-        }
-    };
-
-    const handlePrev = () => {
-        if (translateX < 0) {
-            setTranslateX((prev) => prev + itemWidth); // Translate right
-        }
-    };
+    const prev = () => {
+        setCurr((curr) => curr === 0 ? data.length - 6 : curr - 1)
+    }
+    const next = () => {
+        setCurr((curr) => curr === data.length - 6 ? 0 : curr + 1)
+    }
 
     return (
         <div className="mb-10">
             <div className="flex justify-between my-6">
                 <h1 className="font-semibold text-xl">{label}</h1>
-                <Link href={link} className="font-semibold text-xl">Lihat Selengkapnya</Link>
+                <Link href={link} className="font-semibold text-xl">
+                    <span className="hidden md:inline">Lihat Selengkapnya</span>
+                    <span className="inline md:hidden">
+                        <IoChevronForwardOutline size={20} />
+                    </span>
+                </Link>
             </div>
-            <div className="flex">
-                <div className="carousel carousel-center carousel-box gap-5">
+
+
+            <div className="relative flex">
+                <div className="carousel rounded-box w-full h-80 relative">
                     {
-                        data?.map((item, index) => {
+                        data.map((item, index) => {
                             return (
-                                <div key={index} className="ease-in-out duration-1000 transition-all carousel-item relative max-w-full"
-                                style={{ transform: `translateX(${translateX}px)` }}
+                                <div key={index}
+                                    className="carousel-item transition-transform ease-in-out duration-1000 h-full md:w-1/6 sm:w-1/4 w-1/2"
+                                    style={{ transform: `translateX(-${curr * 100}%)` }}
                                 >
-                                    <Image
-                                        src={item.images.webp.image_url}
-                                        alt={item.title}
-                                        width={172}
-                                        height={200}
-                                        className="object-cover rounded-xl"
-                                    />
-                                    <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black to-transparent rounded-b-xl"></div>
-                                    <div className="absolute bottom-0 left-0 right-0 flex items-center justify-center p-2">
-                                        <h1 className="text-white text-sm font-bold truncate">{item.title}</h1>
+                                    <div className="group overflow-hidden relative h-full w-full mx-2 p-2 rounded-lg">
+                                        <Image
+                                            src={item.images.webp.large_image_url}
+                                            fill
+                                            className="object-cover group-hover:scale-105 transition-transform duration-300 ease-out"
+                                        />
+                                        <div className="absolute bottom-0 left-0 group-hover:bg-black opacity-0 group-hover:opacity-80 transition-opacity duration-300 h-full w-full flex justify-center items-center flex-col gap-2 break-words">
+                                            <p className="font-bold text-xl text-lime-300 text-center relative line-clamp-2 w-full px-4">
+                                                {item.title}
+                                            </p>
+                                            <Link href={`/anime/${item.mal_id}`}>
+                                                <IoChevronForwardCircleOutline size={50} color="white" className="cursor-pointer" />
+                                            </Link>
+                                        </div>
+
                                     </div>
                                 </div>
                             )
-                        })
+                        }
+                        )
                     }
                 </div>
-                <div className="m-3 flex flex-col items-center justify-center gap-5">
-                    <button 
-                        onClick={handlePrev} 
-                        disabled={translateX === 0} 
-                        className={clsx("btn font-bold bg-gray-200 h-2/5 w-16", { 'opacity-50 cursor-not-allowed': translateX === 0 })}
-                    >
-                        {'<'}
+                <div className="flex flex-col gap-5 justify-center m-3">
+                    <button onClick={prev} className=" btn w-16 h-32 bg-lime-300 text-black">
+                        <IoChevronBackOutline size={30}/>
                     </button>
-                    <button 
-                        onClick={handleNext} 
-                        disabled={translateX <= maxTranslateX} 
-                        className={clsx("btn font-bold bg-gray-200 h-2/5 w-16", { 'opacity-50 cursor-not-allowed': translateX <= maxTranslateX })}
-                    >
-                        {'>'}
+                    <button onClick={next} className=" btn w-16 h-32 bg-lime-300 text-black">
+                        <IoChevronForwardOutline size={30}/>
                     </button>
+                   
+
                 </div>
+
             </div>
+            <hr className="bg-white h-1 mt-10" />
         </div>
     )
 }
