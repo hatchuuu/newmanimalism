@@ -46,8 +46,8 @@ const Carousel = ({ data, label, link }) => {
                                             <p className="font-bold text-xl text-lime-300 text-center relative line-clamp-2 w-full px-4">
                                                 {item.title}
                                             </p>
-                                            <Link href={`/anime/${item.mal_id}`}>
-                                                <IoChevronForwardCircleOutline size={50} color="white" className="cursor-pointer" />
+                                            <Link href={`/anime/${item.mal_id}`} >
+                                                <IoChevronForwardCircleOutline size={50} color="white" className="cursor-pointer"  />
                                             </Link>
                                         </div>
 
@@ -59,11 +59,11 @@ const Carousel = ({ data, label, link }) => {
                     }
                 </div>
                 <div className="flex flex-col gap-5 justify-center m-3">
-                    <button onClick={prev} className=" btn w-16 h-32 bg-lime-300 text-black">
-                        <IoChevronBackOutline size={30}/>
+                    <button onClick={prev} className=" btn w-16 h-32 bg-lime-300 group text-black">
+                        <IoChevronBackOutline size={30} className="group-hover:text-lime-300"/>
                     </button>
-                    <button onClick={next} className=" btn w-16 h-32 bg-lime-300 text-black">
-                        <IoChevronForwardOutline size={30}/>
+                    <button onClick={next} className=" btn w-16 h-32 bg-lime-300 group text-black">
+                        <IoChevronForwardOutline size={30} className="group-hover:text-lime-300"/>
                     </button>
                    
 

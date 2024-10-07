@@ -16,7 +16,6 @@ const SearchPage = async ({ params }) => {
                     <div className='w-full flex flex-wrap gap-3 justifey-center items-center'>
                         {
                             animeName.data
-                            // .sort((a, b) => a.year - b.year) 
                             .map((data, index) => {
                                 return (
                                     <div key={index} className='relative group p-4 rounded-md border border-gray-100 w-max max-w-[50vh] flex justify-center items-center'>
@@ -24,9 +23,6 @@ const SearchPage = async ({ params }) => {
                                         <div className="absolute top-0 left-0 w-full h-full bg-white bg-opacity-90 hidden group-hover:flex flex-col justify-center items-center p-4 z-10 transition-all duration-300">
                                             <h1 className='font-semibold text-center w-full my-2'>{data.title}</h1>
                                             <h1 className='font-semibold text-center w-full my-2'>{data.year}</h1>
-                                            {
-                                                console.log(data.year)
-                                            }
                                             <p className='text-sm line-clamp-2'>{data.synopsis}</p>
                                         </div>
                                     </div>

@@ -11,8 +11,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`font-neu antialiased px-8 pt-5`}>
-        <NavigationBar />
-        {children}
+          <NavigationBar />
+          {children}
       </body>
     </html>
   );
