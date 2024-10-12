@@ -22,7 +22,7 @@ const Carouselhome = ({ data, autoSlide = true, autoSlideInterval = 3000 }) => {
 
     return (
         <div className="relative">
-            <div className="carousel rounded-box w-full h-[65vh] relative border-4 ">
+            <div className="carousel rounded-box w-full sm:h-[65vh]  h-[40vh] relative border-4 ">
                 {
                     data.map((item, index) => {
                         return (

@@ -5,12 +5,12 @@ import LoginButton from "@/components/login-button"
 
 const NavigationBar = () => {
     return (
-        <div className="navbar justify-between bg-base-100 fixed z-10 py-5 top-0 ps-6 pe-[76px]">
-            <Link href="/" className="btn btn-ghost text-xl text-blue-50">
+        <div className="navbar justify-between bg-base-100 fixed z-10 sm:gap-0 gap-1 sm:py-5 sm:flex-nowrap flex-wrap top-0  sm:ps-6 ps-2 pe-[50px] sm:pe-[76px]">
+            <Link href="/" className="btn btn-ghost text-xl text-blue-50 sm:ms-3">
                 <Image src="/manimalism.png" width={30} height={30} alt="manimalism logo" />
-                <p>MANIMALISM</p>
+                <p className="sm:text-xl text-sm">MANIMALISM</p>
             </Link>
-            <div className="flex gap-2 w-1/2 justify-end">
+            <div className="flex sm:gap-2 gap-1 sm:w-1/2 sm:justify-end justify-between w-full">
                 <Search />
                 <LoginButton/>
             </div>

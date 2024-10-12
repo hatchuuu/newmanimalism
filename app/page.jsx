@@ -5,17 +5,17 @@ import { getTopAnime, getRandomAnime } from "@/lib/action"
 
 
 const HomePage = async () => {
-  let topAnime = await getTopAnime()
+  let {anime : topAnime} = await getTopAnime()
   topAnime = topAnime.slice(0, 10)
 
   const randomAnime = await getRandomAnime()
 
   return (
-    <div className="mx-10 mt-20">
+    <div className="sm:mx-10 mx-2 sm:mt-20 mt-16">
       <div className="max-h-screen">
         <Carouselhome data={topAnime}/>
       </div>
-      <Carousel label="Top Anime" data={topAnime} link="/top" />
+      <Carousel label="Top Anime" data={topAnime} link="/populer" />
       <Carousel label="Recommended Anime" data={randomAnime} link="/recommended" />
     </div>
   )

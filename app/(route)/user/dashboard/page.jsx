@@ -1,7 +1,7 @@
 import React from 'react'
 import { getUserSession } from '@/lib/login'
 import Image from 'next/image'
-import UserButton from '@/components/user-button'
+import Link from 'next/link'
 
 const DashboardPage = async () => {
     const user = await getUserSession()
@@ -19,7 +19,19 @@ const DashboardPage = async () => {
                             <h1>Email : <span className='font-bold'>{user.email}</span></h1>
                         </div>
                     </div>
-                    <UserButton/>
+                    <div className='flex mb-10 gap-3 justify-center'>
+                        <Link
+                            href='/user/collections'
+                            className='btn bg-lime-300 text-gray-900 hover:text-lime-300 hover:bg-gray-900'>
+                            Collections
+                        </Link>
+                        <Link
+                            href='/user/comments'
+                            className='btn bg-lime-300 text-gray-900 hover:text-lime-300 hover:bg-gray-900'>
+                            Comments
+                        </Link>
+                        
+                    </div>
                 </div>
             </div>
         </div>
