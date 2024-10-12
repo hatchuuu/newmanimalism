@@ -19,7 +19,7 @@ const DashboardPage = async () => {
                             <h1>Email : <span className='font-bold'>{user.email}</span></h1>
                         </div>
                     </div>
-                    <UserButton/>
+                    <UserButton />
                 </div>
             </div>
         </div>

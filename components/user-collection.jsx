@@ -1,11 +1,16 @@
+import { getAnime } from '@/lib/data'
+import { getUserSession } from '@/lib/login'
+import prisma from '@/lib/prisma'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
-const UserCollections = () => {
+const UserCollections =  () => {
+    
     return (
         <div className='w-full max-h-screen'>
             <div className="flex flex-wrap gap-4 justify-center ">
+                
                 <div className='flex border-4 rounded-lg '>
                     <Link href="" className='relative w-64 h-64' >
                         <Image src="" fill alt="" className='rounded-xl'/>

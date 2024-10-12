@@ -1,12 +1,23 @@
 
+import Collectionsbutton from '@/components/collections-button'
 import VideoPlayer from '@/components/video-youtube'
 import { getAnime } from '@/lib/data'
+import { getUserSession } from '@/lib/login'
+import prisma from '@/lib/prisma'
 import Image from 'next/image'
-
 
 const AnimePage = async ({ params }) => {
     const { id } = params
     const data = await getAnime(`anime/${id}`)
+    const user = await getUserSession()
+
+    const collection = await prisma.collection.findFirst({
+        where: {
+            malId: id,
+            email: user?.email
+        }
+    })
+
     return (
         data ?
             <div className=' mx-4 md:mx-10 mt-20 mb-10 sm:mb-0'>
@@ -17,14 +28,17 @@ const AnimePage = async ({ params }) => {
                                 {data.data.title}
                             </h1>
                             {
-                                data.data.year &&
-                                <button className='rounded-md px-4 py-2 border-0 bg-lime-300 hover:bg-lime-200
-                                text-gray-900 font-semibold text-sm sm:text-md'>{data.data.year}</button>
-
+                                user &&
+                                    collection ?
+                                    <button className='btn btn-disabled'>
+                                        Collection Added
+                                    </button>
+                                    :
+                                    <Collectionsbutton malId={id} email={user?.email} />
                             }
                         </div>
                         <div className="flex md:flex-row flex-col py-4 gap-8 relative">
-                            <Image src={data.data.images.webp.large_image_url} width={1080} height={1080} alt={data.title} className='max-h-[60vh]' />
+                            <Image src={data.data.images.webp.large_image_url} width={1080} height={1080} alt={data.title} className='max-h-[60vh] max-w-[35vw]' />
                             <div>
                                 <div className='flex gap-3 mb-5'>
                                     <button className='rounded-md w-32 py-2 border-0 flex flex-col justify-center items-center bg-lime-300 hover:bg-lime-200
@@ -49,7 +63,7 @@ const AnimePage = async ({ params }) => {
                             </div>
 
                             <div className="md:absolute bottom-0 right-0 items-end flex flex-col">
-                                <VideoPlayer youtubeId={data.data.trailer.youtube_id}/>
+                                <VideoPlayer youtubeId={data.data.trailer.youtube_id} />
                             </div>
 
                         </div>
