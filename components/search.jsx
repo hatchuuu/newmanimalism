@@ -18,11 +18,11 @@ const Search = () => {
 
     }
     return (
-        <div className="relative">
-            <input type="text" placeholder="Search" className="ps-12 input input-bordered w-full "
+        <div className="input input-bordered flex items-center gap-2">
+            <input type="text" placeholder="Search" className="grow  "
                 ref={searchRef} onKeyDown={handleSearch}
             />
-            <IoSearchOutline className="absolute left-4 top-1/2 transform -translate-y-1/2 cursor-pointer" />
+            <IoSearchOutline />
         </div>
     )
 }

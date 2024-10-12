@@ -14,9 +14,20 @@ datasource db {
 }
 
 model Collection {
-  id          Int      @id @default(autoincrement())
-  malId       String
-  email       String
+  collectionId Int    @id @default(autoincrement())
+  userEmail    String
+  animeId      String
+  animeImage   String
+  animeTitle   String
 
-  @@unique([malId, email]) //jika ada data yang sama maka akan dianggap duplicate
+  @@unique([animeId, userEmail]) //jika ada data yang sama maka akan dianggap duplicate
+}
+
+model Comment {
+  commentId   Int    @id @default(autoincrement())
+  userEmail   String
+  userComment String
+  userName    String
+  animeId     String
+  animeTitle  String
 }

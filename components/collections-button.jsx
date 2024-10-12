@@ -2,13 +2,13 @@
 import React, { useState, useEffect } from 'react'
 import { IoAddOutline } from 'react-icons/io5'
 
-const Collectionsbutton = ({ malId, email }) => {
+const Collectionsbutton = ({ animeId, animeTitle, animeImage, userEmail }) => {
     const [isCreated, setIsCreated] = useState(false)
 
     const handleClick = async (event) => {
         event.preventDefault()
 
-        const data = { malId, email }
+        const data = { animeId, animeTitle, animeImage, userEmail }
 
         const response = await fetch('/api/v1/collection', {
             method: 'POST',
