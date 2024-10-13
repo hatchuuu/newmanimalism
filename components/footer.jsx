@@ -14,7 +14,7 @@ const Footer = () => {
     const emailLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
 
     return (
-        <footer className="flex justify-between bg-base-300 text-base-content p-4 sm:py-10 sm:px-16">
+        <footer className="flex justify-between bg-base-300 text-base-content p-4 sm:py-10 sm:px-16 relative bottom-0">
             <nav className='flex gap-5'>
                 <IoSparkles size={70} className='sm:block hidden'/>
                 <div className='flex- flex-col'>

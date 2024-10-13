@@ -28,14 +28,14 @@ const CommentsText = ({animeId, animeTitle, userName, userEmail}) => {
                 rows="5"
                 placeholder='Masukkan komentar...'
                 onChange={handleChange}
-                className='w-full sm:p-2 p-1 textarea-bordered textarea text-sm sm:text-base'>
+                className='w-full p-2  textarea-bordered textarea text-sm sm:text-base'>
             </textarea>
             <button
-                className='sm:mt-2 mt-1 self-end p-2 sm:p-0 w-max btn bg-lime-300 text-gray-900 hover:bg-gray-900 hover:text-lime-300'
+                className='sm:mt-2 mt-1 text-sm sm:text-base  self-end btn-sm sm:btn-md w-max btn bg-lime-300 text-gray-900 hover:bg-gray-900 hover:text-lime-300'
                 onClick={handleClick}
             >
                 <IoSendSharp />
-                Kirim Komentar
+                Kirim
             </button>
         </div>
     )

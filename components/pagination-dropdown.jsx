@@ -2,7 +2,7 @@ import React from 'react'
 
 const Dropdown = ({totalPage, handlePage, title}) => {
     return (
-        <div className="dropdown">
+        <div className="dropdown sm:block hidden">
             <div tabIndex={0} role="button" className="btn m-1">{title}</div>
             <ul tabIndex={0} className="w-[22rem] dropdown-content menu bg-base-100 rounded-box z-[1] p-2 shadow">
                 <div className='h-40 grid w-full grid-cols-4 overflow-scroll overflow-x-hidden gap-2'>

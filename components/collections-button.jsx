@@ -1,6 +1,6 @@
 'use client'
 import React, { useState, useEffect } from 'react'
-import { IoAddOutline } from 'react-icons/io5'
+import { IoAddOutline, IoCheckmark } from 'react-icons/io5'
 
 const Collectionsbutton = ({ animeId, animeTitle, animeImage, userEmail }) => {
     const [isCreated, setIsCreated] = useState(false)
@@ -24,13 +24,23 @@ const Collectionsbutton = ({ animeId, animeTitle, animeImage, userEmail }) => {
         <>
             {
                 isCreated ?
-                    <button className='btn btn-disabled'>
-                        Collection Added
+                    <button className='btn btn-disabled sm:rounded-md rounded-full'>
+                        <div className="hidden sm:block">Anime Added</div>
+                        <div className="sm:hidden block">
+                            <IoCheckmark size={15} />
+                        </div>
                     </button>
                     :
                     <button onClick={handleClick}
-                        className='btn rounded-md px-4 py-2 border-0 bg-lime-300 hover:bg-lime-200 text-gray-900 font-semibold text-sm sm:text-md'>
-                        <IoAddOutline size={15} /> Add to Collections
+                        className='btn rounded-full sm:rounded-md sm:px-4 sm:py-2 border-0 bg-lime-300 hover:bg-lime-200 text-gray-900 font-semibold text-sm sm:text-base'>
+                        <div className="hidden sm:block">
+                            <IoAddOutline size={15} /> Add to Collections
+                        </div>
+                        <div className="sm:hidden block">
+                            <IoAddOutline size={15} />
+                        </div>
+
+
                     </button>
             }
         </>
