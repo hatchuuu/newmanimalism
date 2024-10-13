@@ -16,11 +16,11 @@ const DashboardPage = async () => {
                         </div>
                         <div className='flex flex-col gap-3'>
                             <div className='flex gap-1 sm:flex-row flex-col'>
-                                <h1 className='sm:text-base text-sm'>Nama : </h1>
+                                <h1 className='sm:text-base text-sm'>Nama: </h1>
                                 <h1 className='w-full sm:text-base text-sm font-bold'>{user.name}</h1>
                             </div>
                             <div className='flex gap-1 sm:flex-row flex-col'>
-                                <h1 className='sm:text-base text-sm'>Email : </h1>
+                                <h1 className='sm:text-base text-sm'>Email: </h1>
                                 <h1 className='sm:text-base text-sm font-bold'>{user.email}</h1>
                             </div>
                         </div>

@@ -1,4 +1,5 @@
 import { getUserSession } from '@/lib/login'
+import prisma from '@/lib/prisma'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
