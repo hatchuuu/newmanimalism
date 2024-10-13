@@ -12,11 +12,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`font-neu antialiased `}>
-          <NavigationBar />
-          <div className="px-8 pt-5">
+        <NavigationBar />
+        <div className="sm:px-16 sm:pt-24 px-3 pt-16">
           {children}
-          </div>
-          <Footer/>
+        </div>
+        <Footer />
       </body>
     </html>
   );

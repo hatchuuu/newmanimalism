@@ -15,4 +15,8 @@
   }
   @keyframes s2 {to{transform: rotate(1turn)}}
 
+  .transisi{
+    @apply transition-transform ease-in-out duration-1000
+  }
 }
+

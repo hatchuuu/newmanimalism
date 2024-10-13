@@ -14,31 +14,28 @@ const Footer = () => {
     const emailLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
 
     return (
-        <footer className="footer bg-base-300 text-base-content p-10 ps-16">
-            <nav>
-                <h6 className="footer-title">Services</h6>
-                <a className="link link-hover">Branding</a>
-                <a className="link link-hover">Design</a>
+        <footer className="flex justify-between bg-base-300 text-base-content p-4">
+            <nav className='flex- flex-col'>
+                <h6 className="font-semibold text-sm text-gray-200 mb-3">Project</h6>
+                <a href='https://kusumanayr.vercel.app' className="hover:text-lime-300 block text-xs mb-1">Portfolio</a>
+                <a href='https://newmanimalism.vercel.app' className="hover:text-lime-300 block text-xs">Manimalism</a>
             </nav>
+
             <nav>
-                <h6 className="footer-title">Company</h6>
-                <a href="https://kusumanayr.vercel.app/" className="link link-hover">About us</a>
-                <a className="link link-hover">Contact</a>
-            </nav>
-            <nav>
-                <h6 className="footer-title">Social</h6>
-                <div className="grid grid-flow-col gap-4">
+                <div className='flex flex-col mb-3'>
+                    <a href='https://kusumanayr.vercel.app' className="font-semibold text-sm text-gray-200 mb-3">Contact</a>
+                    <a href={emailLink} className='hover:text-lime-300 block text-xs mb-1'>kusuma.nayr@gmail.com</a>
+                    <a href={whatsappLink} className='hover:text-lime-300 block text-xs mb-1'>+(62) 895-3209-87471</a>
+                </div>
+                <div className="flex sm:gap-4 gap-2">
                     <a href={linkedinLink} className='hover:text-lime-300'>
-                        <IoLogoLinkedin size={25} />
-                    </a>
-                    <a href={emailLink} className='hover:text-lime-300'>
-                        <IoMail size={25} />
+                        <IoLogoLinkedin className='text-lg' />
                     </a>
                     <a href={whatsappLink} className='hover:text-lime-300'>
-                        <IoLogoWhatsapp size={25} />
+                        <IoLogoWhatsapp className='text-lg' />
                     </a>
                     <a href={instagramLink} className='hover:text-lime-300'>
-                        <IoLogoInstagram size={25} />
+                        <IoLogoInstagram className='text-lg' />
                     </a>
 
                 </div>
