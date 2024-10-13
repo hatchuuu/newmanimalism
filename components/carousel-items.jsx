@@ -9,7 +9,7 @@ const Carouselitems = ({ item,  curr }) => {
             className="carousel-item transisi h-full  md:w-1/6  w-1/3"
             style={{ transform: `translateX(-${curr * 100}%)` }}
         >
-            <Link Link href={`/anime/${item.mal_id}`} className="group overflow-hidden relative h-full w-full mx-1 sm:mx-2 p-2 rounded-lg">
+            <Link href={`/anime/${item.mal_id}`} className="group overflow-hidden relative h-full w-full mx-1 sm:mx-2 p-2 rounded-lg">
                 <Image
                     src={item.images.webp.large_image_url}
                     fill

@@ -1,5 +1,4 @@
 "use client"
-import Image from "next/image"
 import Link from "next/link"
 import { IoChevronForwardOutline, IoChevronBackOutline, IoChevronForwardCircleOutline } from "react-icons/io5"
 import { useState } from "react"

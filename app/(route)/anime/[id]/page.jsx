@@ -28,24 +28,27 @@ const AnimePage = async ({ params }) => {
     })
 
     return (
-        <div className=' mx-4 md:mx-10 mt-20 mb-10 sm:mb-0'>
-            <div className="border-4 border-white p-10 mb-10 rounded-2xl">
-                <div className='flex justify-between'>
-                    <h1 className='text-2xl text-gray-100 text-bold uppercase'>
+        <div className=' sm:mb-10 mb-5 '>
+            <div className="sm:border-4 border-[2px] border-gray-300 sm:p-10 p-4 mb-10 rounded-2xl">
+                <div className='flex justify-between sm:mb-4 sm:my-0 my-2'>
+                    <h1 className='sm:text-2xl text-lg text-gray-100 text-bold uppercase'>
                         {data.data.title}
                     </h1>
                     {
-                        user &&
-                            collection ?
-                            <button className='btn btn-disabled'>
-                                Collection Added
-                            </button>
-                            :
-                            <Collectionsbutton animeId={id} animeImage={data.data.images.webp.large_image_url} animeTitle={data.data.title} userEmail={user?.email} />
+                        user ?
+                            (
+                                collection ?
+                                    <button className='btn btn-disabled'>
+                                        Collection Added
+                                    </button>
+                                    :
+                                    <Collectionsbutton animeId={id} animeImage={data.data.images.webp.large_image_url} animeTitle={data.data.title} userEmail={user?.email} />
+                            )
+                            : null
                     }
                 </div>
-                <div className="flex md:flex-row flex-col py-4 gap-8 relative mb-5">
-                    <Image src={data.data.images.webp.large_image_url} width={1080} height={1080} alt={data.title} className='max-h-[60vh] max-w-[35vw]' />
+                <div className="flex md:flex-row flex-col justify-center py-4 sm:gap-8 gap-4 relative mb-5">
+                    <Image src={data.data.images.webp.large_image_url} width={1080} height={1080} alt={data.title} className='self-center max-h-[60vh] sm:max-w-[35vw] max-w-[60vw]' />
                     <div>
                         <div className='flex gap-3 mb-5'>
                             <Link href='/recommended'
@@ -73,7 +76,7 @@ const AnimePage = async ({ params }) => {
                                 <p>{data.data.popularity}</p>
                             </button>
                         </div>
-                        <h1 className='text-md text-justify text-gray-400'>
+                        <h1 className='sm:text-base text-sm text-justify text-gray-400'>
                             {data.data.synopsis}
                         </h1>
                     </div>

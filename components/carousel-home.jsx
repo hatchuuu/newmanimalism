@@ -21,32 +21,31 @@ const Carouselhome = ({ data, autoSlide = true, autoSlideInterval = 3000 }) => {
     }
 
     return (
+
         <div className="relative">
-            <div className="carousel rounded-box w-full sm:h-[65vh]  h-[40vh] relative border-4 ">
+            <div className="carousel carousel-center rounded-box w-full sm:h-[65vh] h-[40vh] relative border-4 "
+
+            >
                 {
                     data.map((item, index) => {
                         return (
-                            <div key={index} className="carousel-item w-full transition-transform ease-in-out duration-1000"
+                            <div key={index} className="carousel-item w-full transisi"
                                 style={{ transform: `translateX(-${curr * 100}%)` }}
                             >
-                                <div className="grid grid-cols-2 w-full">
-
-                                    <div className="flex flex-col justify-center h-full p-16 gap-4">
-                                        <h1 className="text-4xl font-bold text-lime-300 ">{item.title}</h1>
-                                        <p className="text-xl text-gray-400 line-clamp-4">{item.synopsis}</p>
-                                        <Link href={`/anime/${item.mal_id}`} className="text-white rounded-lg border-2 border-lime-300 text-xl py-2 px-4 w-max
+                                <div className="flex justify-between relative w-full  overflow-hidden">
+                                    <div className="w-1/2">
+                                        <div className="flex flex-col justify-center h-full sm:p-16 p-3 gap-4">
+                                            <h1 className="sm:text-4xl text-lg font-bold text-lime-300 ">{item.title}</h1>
+                                            <p className="sm:text-xl text-sm text-gray-400 sm:line-clamp-4 line-clamp-2">{item.synopsis}</p>
+                                            <Link href={`/anime/${item.mal_id}`} className="text-white rounded-lg border-2 border-lime-300 sm:text-xl text-base py-2 px-4 w-max
                                             hover:bg-lime-300 btn hover:text-black hover:border-lime-300
                                             ">Detail Anime
-                                        </Link>
+                                            </Link>
+                                        </div>
                                     </div>
-
-                                    <div className="p-10 overflow-hidden relative rounded-r-xl bg-blue-200 w-full h-full">
-                                        <Image
-                                            src={item.images.webp.large_image_url}
-                                            fill
-                                            className="object-cover"
-                                            style={{ objectPosition: '50% 40%' }}
-                                        />
+                                    <div className="flex justify-end  w-1/2 overflow-hidden">
+                                        <Image src={item.images.webp.large_image_url} width={1080} height={1080} alt={item.title} className='max-w-[50vw] object-cover'
+                                            style={{ objectPosition: '50% 40%' }} />
                                     </div>
                                 </div>
                             </div>
@@ -55,13 +54,15 @@ const Carouselhome = ({ data, autoSlide = true, autoSlideInterval = 3000 }) => {
                     )
                 }
             </div>
-            <div className="absolute bottom-12 left-[52px] flex flex-row gap-5">
-                <button onClick={prev} className=" btn btn-circle border-0  bg-lime-300 text-black">
-                    <IoChevronBackOutline size={15} />
-                </button>
-                <button onClick={next} className=" btn btn-circle border-0  bg-lime-300 text-black">
-                    <IoChevronForwardOutline size={15} />
-                </button>
+            <div className="sm:block hidden">
+                <div className="absolute bottom-12 left-[52px] flex flex-row gap-5">
+                    <button onClick={prev} className=" btn btn-circle border-0  bg-lime-300 text-black">
+                        <IoChevronBackOutline size={15} />
+                    </button>
+                    <button onClick={next} className=" btn btn-circle border-0  bg-lime-300 text-black">
+                        <IoChevronForwardOutline size={15} />
+                    </button>
+                </div>
             </div>
         </div>
     )
