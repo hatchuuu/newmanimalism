@@ -47,34 +47,43 @@ const AnimePage = async ({ params }) => {
                             : null
                     }
                 </div>
-                <div className="flex md:flex-row flex-col justify-center py-4 sm:gap-8 gap-4 relative mb-5">
+                <div className="flex md:flex-row flex-col justify-center py-4 sm:gap-8 gap-4 relative sm:mb-5 mb-3">
                     <Image src={data.data.images.webp.large_image_url} width={1080} height={1080} alt={data.title} className='self-center max-h-[60vh] sm:max-w-[35vw] max-w-[60vw]' />
                     <div>
-                        <div className='flex gap-3 mb-5'>
+                        <div className='flex gap-3 sm:mb-5 mb-3 sm:justify-normal justify-center'>
                             <Link href='/recommended'
-                                className='rounded-md px-3 py-2 border-0 flex flex-col justify-center items-center bg-lime-300 hover:bg-lime-200 text-gray-900 font-semibold text-sm sm:text-md'>
-                                <div className='flex items-center gap-2 text-base'>
-                                    <IoRibbon />
-                                    <p>Rekomendasi</p>
+                                className='rounded-md px-3 py-2   border-0 flex sm:flex-col justify-center items-center bg-lime-300 hover:bg-lime-200 text-gray-900 font-semibold sm:text-base text-sm gap-1 sm:gap-0'>
+                                <div className='hidden sm:block'>
+                                    <div className='flex items-center gap-2 sm:text-base text-sm'>
+                                        <IoRibbon />
+                                        <p>Rekomendasi</p>
+                                    </div>
                                 </div>
-                                <p>{data.data.rank}</p>
+                                <IoRibbon className='sm:hidden block' />
+                                <p> {data.data.rank}</p>
                             </Link>
-                            <button
-                                className='rounded-md px-3 py-2 border-0 flex flex-col justify-center items-center bg-lime-300 hover:bg-lime-200 text-gray-900 font-semibold text-sm sm:text-md'>
-                                <div className='flex items-center gap-2 text-base'>
-                                    <IoStar />
-                                    <p>Score</p>
+                            <Link href='#'
+                                className='rounded-md px-3 py-2   border-0 flex sm:flex-col justify-center items-center bg-lime-300 hover:bg-lime-200 text-gray-900 font-semibold sm:text-base text-sm gap-1 sm:gap-0'>
+                                <div className='hidden sm:block'>
+                                    <div className='flex items-center gap-2 sm:text-base text-sm'>
+                                        <IoStar />
+                                        <p>Rating</p>
+                                    </div>
                                 </div>
+                                <IoStar className='sm:hidden block' />
                                 <p>{data.data.score}</p>
-                            </button>
-                            <button
-                                className='rounded-md px-3 py-2 border-0 flex flex-col justify-center items-center bg-lime-300 hover:bg-lime-200 text-gray-900 font-semibold text-sm sm:text-md'>
-                                <div className='flex items-center gap-2 text-base'>
-                                    <IoStatsChart />
-                                    <p>Polularitas</p>
+                            </Link>
+                            <Link href='#'
+                                className='rounded-md px-3 py-2  border-0 flex sm:flex-col justify-center items-center bg-lime-300 hover:bg-lime-200 text-gray-900 font-semibold sm:text-base text-sm gap-1 sm:gap-0'>
+                                <div className='hidden sm:block'>
+                                    <div className='flex items-center gap-2 sm:text-base text-sm'>
+                                        <IoStatsChart />
+                                        <p>Popularitas</p>
+                                    </div>
                                 </div>
+                                <IoStatsChart className='sm:hidden block' />
                                 <p>{data.data.popularity}</p>
-                            </button>
+                            </Link>
                         </div>
                         <h1 className='sm:text-base text-sm text-justify text-gray-400'>
                             {data.data.synopsis}
@@ -86,13 +95,13 @@ const AnimePage = async ({ params }) => {
                     </div>
                 </div>
                 <div className='my-5 flex flex-col justify-center gap-3 w-full'>
-                    <p className='pb-2 text-xl font-semibold'>Komentar</p>
+                    <p className='sm:pb-2 pb-0 sm:text-xl text-base font-semibold'>Komentar</p>
                     {
                         comment?.map((items, index) => {
                             return (
-                                <div key={index} className='p-4 rounded-md border border-gray-500'>
-                                    <h1 className='font-bold mb-2 text-lime-300'>{items.userName}</h1>
-                                    <p className='text-gray-400'>{items.userComment}</p>
+                                <div key={index} className='sm:p-4 p-2 rounded-md border border-gray-500'>
+                                    <h1 className='font-bold mb-2 text-lime-300 text-sm sm:text-base'>{items.userName}</h1>
+                                    <p className='text-gray-400 sm:text-base text-sm'>{items.userComment}</p>
                                 </div>
                             )
                         })
