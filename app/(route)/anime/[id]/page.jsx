@@ -32,25 +32,27 @@ const AnimePage = async ({ params }) => {
             <div className="sm:border-4 border-[2px] border-gray-300 sm:p-10 p-4 mb-10 rounded-2xl">
                 <div className='flex justify-between items-center sm:mb-5'>
                     <h1 className='sm:text-2xl text-lg text-gray-100 text-bold uppercase'>
-                        {data.data.title}
+                        {data?.data?.title}
                     </h1>
                     {
                         user ?
                             (
                                 collection ?
                                     <button className='btn sm:rounded-md btn-disabled rounded-full'>
-                                        <div className="hidden sm:block">Anime Added</div>
+                                        <div className="hidden sm:flex sm:gap-2">
+                                            <IoCheckmark size={15} /><span>Anime Added</span>
+                                        </div>
                                         <div className="sm:hidden block">
-                                            <IoCheckmark size={15}/>
+                                            <IoCheckmark size={15} />
                                         </div>
                                     </button>
                                     :
-                                    <Collectionsbutton animeId={id} animeImage={data.data.images.webp.large_image_url} animeTitle={data.data.title} userEmail={user?.email} />
+                                    <Collectionsbutton animeId={id} animeImage={data?.data?.images.webp.large_image_url} animeTitle={data.data.title} userEmail={user?.email} />
                             )
                             : null
                     }
                 </div>
-                <div className="flex md:flex-row flex-col justify-center py-4 sm:gap-8 gap-4 relative sm:mb-5 mb-3">
+                <div className="flex md:flex-row flex-col sm:justify-start justify-center py-4 sm:gap-8 gap-4 relative sm:mb-5 mb-3">
                     <Image src={data.data.images.webp.large_image_url} width={1080} height={1080} alt={data.title} className='self-center max-h-[60vh] sm:max-w-[35vw] max-w-[60vw]' />
                     <div>
                         <div className='flex gap-3 mb-5 sm:justify-normal justify-center'>

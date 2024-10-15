@@ -3,6 +3,7 @@ import Link from "next/link"
 import { IoChevronForwardOutline, IoChevronBackOutline, IoChevronForwardCircleOutline } from "react-icons/io5"
 import { useState } from "react"
 import Carouselitems from "./carousel-items"
+import Card from "./card"
 
 const Carousel = ({ data, label, link }) => {
     const [curr, setCurr] = useState(0)
@@ -29,9 +30,9 @@ const Carousel = ({ data, label, link }) => {
             <div className="relative flex">
                 <div className="carousel rounded-box w-full sm:h-80 h-44 relative">
                     {
-                        data.map((item, index) => {
+                        data.map((data, index) => {
                             return (
-                                <Carouselitems item={item} curr={curr} key={index} />
+                                <Carouselitems item={data} key={index} curr={curr} />
                             )
                         })
                     }

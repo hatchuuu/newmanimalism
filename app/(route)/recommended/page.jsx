@@ -1,7 +1,9 @@
 'use client'
+import Card from '@/components/card'
 import Loading from '@/components/loading'
 import { getRecommendedAnime } from '@/lib/action'
 import Image from 'next/image'
+import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import { IoChevronForwardCircleOutline } from 'react-icons/io5'
 
@@ -17,7 +19,7 @@ const RecomendedPage = () => {
         anime = anime.slice(range, lastRange)
         setAnime(anime)
     }
-
+console.log(anime);
     useEffect(() => {
         fetchReqAnime()
     }, [range, lastRange])
@@ -45,17 +47,7 @@ const RecomendedPage = () => {
                 <div className='w-full grid grid-cols-3 md:grid-cols-5 gap-3 mb-4'>
                     {
                         anime?.map((data, index) => (
-                            <div key={index} className='group relative p-2 rounded-md border border-gray-100 overflow-hidden flex justify-center items-center '>
-                                <Image src={data.images.webp.image_url} height={350} width={350} alt={data.title} className=' object-cover group-hover:scale-105 transition-transform duration-300 ease-out' />
-                                <div className="absolute bottom-0 left-0 group-hover:bg-black opacity-0 group-hover:opacity-80 transition-opacity duration-300 h-full w-full flex justify-center items-center flex-col gap-2 break-words">
-                                    <p className="font-bold  text-lime-300 text-center relative line-clamp-2 w-full px-4 text-xs sm:text-xl">
-                                        {data.title}
-                                    </p>
-                                    <div >
-                                        <IoChevronForwardCircleOutline color="white" className="sm:h-14 sm:w-14 h-8 w-8 cursor-pointer" />
-                                    </div>
-                                </div>
-                            </div>
+                            <Card data = {data} key={index} />
                         ))
                     }
                 </div>

@@ -25,7 +25,9 @@ const Collectionsbutton = ({ animeId, animeTitle, animeImage, userEmail }) => {
             {
                 isCreated ?
                     <button className='btn btn-disabled sm:rounded-md rounded-full'>
-                        <div className="hidden sm:block">Anime Added</div>
+                        <div className="hidden sm:flex sm:gap-2">
+                        <IoCheckmark size={15} /><span>Anime Added</span>
+                            </div>
                         <div className="sm:hidden block">
                             <IoCheckmark size={15} />
                         </div>
@@ -33,8 +35,8 @@ const Collectionsbutton = ({ animeId, animeTitle, animeImage, userEmail }) => {
                     :
                     <button onClick={handleClick}
                         className='btn rounded-full sm:rounded-md sm:px-4 sm:py-2 border-0 bg-lime-300 hover:bg-lime-200 text-gray-900 font-semibold text-sm sm:text-base'>
-                        <div className="hidden sm:block">
-                            <IoAddOutline size={15} /> Add to Collections
+                        <div className="hidden sm:flex sm:gap-2">
+                            <IoAddOutline size={15} /> <span>Add to Collections</span>
                         </div>
                         <div className="sm:hidden block">
                             <IoAddOutline size={15} />

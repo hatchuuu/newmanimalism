@@ -36,7 +36,6 @@ const LoginButton = async () => {
                                 tabIndex={0}
                                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-48 p-4 shadow">
                                 <li><Link href={`/user/dashboard`} className="justify-between text-lg">Profile</Link></li>
-                                <li><Link href={`/`} className="justify-between text-lg">Setting</Link></li>
                                 <li><Link href='/api/auth/signout' className="justify-between text-lg">Sign Out</Link></li>
                             </ul>
                         </div>
@@ -63,20 +62,19 @@ const LoginButton = async () => {
                                     {/* Sidebar content here */}
                                     <div>
                                         <li><Link href={`/user/dashboard`}>Profile</Link></li>
-                                        <li><Link href={`/`}>Setting</Link></li>
                                         <li><Link href='/api/auth/signout'>Sign Out</Link></li>
                                     </div>
 
                                     {/* User avatar and name at the bottom */}
                                     <li className="mt-auto">
-                                        <div className="flex items-center">
-                                            <div className="rounded-full w-8 h-8">
+                                        <div className="flex flex-col items-center justify-between">
+                                            <div className="rounded-full w-10 h-10">
                                                 <Image
-                                                    width={100}
-                                                    height={100}
+                                                    width ={250}
+                                                    height={250}
                                                     alt="Avatar"
                                                     src={user.image}
-                                                    className=" w-8 h-8 rounded-full"
+                                                    className="rounded-full"
                                                 />
                                             </div>
                                             <div><p>{user.name}</p></div>
@@ -87,26 +85,6 @@ const LoginButton = async () => {
                             </div>
                         </div>
                     </div>
-
-                // <div className="dropdown dropdown-end">
-                //     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                //         <div className="w-10 rounded-full">
-                //             <Image
-                //                 fill
-                //                 alt="Avatar Github"
-                //                 src={user.image}
-                //                 className='rounded-full'
-                //             />
-                //         </div>
-                //     </div>
-                //     <ul
-                //         tabIndex={0}
-                //         className="menu menu-sm dropdown-content bg-base-100  rounded-box z-[1] mt-3 w-48 p-4 shadow">
-                //         <li><Link href={`/user/dashboard`} className="justify-between text-lg">Profile</Link></li>
-                //         <li><Link href={`/`} className="justify-between text-lg">Setting</Link></li>
-                //         <li><Link href='/api/auth/signout' className="justify-between text-lg">Sign Out</Link></li>
-                //     </ul>
-                // </div>
             }
 
         </div>
