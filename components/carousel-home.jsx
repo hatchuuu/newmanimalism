@@ -23,7 +23,7 @@ const Carouselhome = ({ data, autoSlide = true, autoSlideInterval = 3000 }) => {
     return (
 
         <div className="relative">
-            <div className="carousel carousel-center rounded-box w-full sm:h-[65vh] h-[40vh] relative border-4 "
+            <div className="carousel carousel-center rounded-box w-full sm:h-[65vh] h-[40vh] relative sm:border-4 "
 
             >
                 {
@@ -37,8 +37,8 @@ const Carouselhome = ({ data, autoSlide = true, autoSlideInterval = 3000 }) => {
                                         <div className="flex flex-col justify-center h-full sm:p-16 p-3 gap-4">
                                             <h1 className="sm:text-4xl text-lg font-bold text-lime-300 ">{item.title}</h1>
                                             <p className="sm:text-xl text-sm text-gray-400 sm:line-clamp-4 line-clamp-2">{item.synopsis}</p>
-                                            <Link href={`/anime/${item.mal_id}`} className="text-white rounded-lg border-2 border-lime-300 sm:text-xl text-base py-2 px-4 w-max
-                                            hover:bg-lime-300 btn hover:text-black hover:border-lime-300
+                                            <Link href={`/anime/${item.mal_id}`} className="text-white rounded-lg border-2 sm:border-lime-300 sm:text-xl text-sm py-2 px-4 w-max
+                                            hover:bg-lime-300 btn hover:text-black hover:border-lime-300 bg-slate-900
                                             ">Detail Anime
                                             </Link>
                                         </div>

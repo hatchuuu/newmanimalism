@@ -12,7 +12,7 @@ const LoginButton = async () => {
             {
                 !user ?
                     <Link href="/api/auth/signin"
-                        className="btn btn-sm p-1 btn-ghost border-gray-500 rounded-full border-[2px]  text-base 
+                        className="btn btn-sm p-1 btn-ghost border-gray-200 rounded-full border-[2px] text-base text-gray-200 
                     sm:btn-md sm:rounded-lg">
                         <IoPerson className='sm:text-xl' />
                         <p className='hidden sm:inline'>Sign In</p>
@@ -70,7 +70,7 @@ const LoginButton = async () => {
                                         <div className="flex flex-col items-center justify-between">
                                             <div className="rounded-full w-10 h-10">
                                                 <Image
-                                                    width ={250}
+                                                    width={250}
                                                     height={250}
                                                     alt="Avatar"
                                                     src={user.image}

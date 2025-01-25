@@ -18,8 +18,8 @@ const Carousel = ({ data, label, link }) => {
     return (
         <div className="sm:mb-10 mb-7">
             <div className="flex justify-between sm:my-6 my-3">
-                <h1 className=" font-semibold text-base ml-1 sm:text-xl ">{label}</h1>
-                <Link href={link} className="font-semibold text-xl">
+                <h1 className=" font-semibold text-gray-300 ml-1 sm:text-xl ">{label}</h1>
+                <Link href={link} className="font-semibold text-xl text-gray-300">
                     <span className="hidden md:inline">Lihat Selengkapnya</span>
                     <span className="inline md:hidden">
                         <IoChevronForwardOutline size={20} />

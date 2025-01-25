@@ -56,7 +56,7 @@ const AnimePage = async ({ params }) => {
                     <Image src={data.data.images.webp.large_image_url} width={1080} height={1080} alt={data.title} className='self-center max-h-[60vh] sm:max-w-[35vw] max-w-[60vw]' />
                     <div>
                         <div className='flex gap-3 mb-5 sm:justify-normal justify-center'>
-                            <Link href='/recommended'
+                            <Link href='/populer'
                                 className='rounded-md px-3 py-2   border-0 flex sm:flex-col justify-center items-center bg-lime-300 hover:bg-lime-200 text-gray-900 font-semibold sm:text-base text-sm gap-1 sm:gap-0'>
                                 <div className='hidden sm:block'>
                                     <div className='flex items-center gap-2 sm:text-base text-sm'>

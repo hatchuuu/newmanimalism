@@ -6,7 +6,7 @@ import LoginButton from "@/components/login-button"
 const NavigationBar = () => {
     return (
         <div className="
-        flex px-2 py-4 bg-base-100 gap-1 w-full justify-between items-center fixed top-0 z-50 sm:px-16 sm:py-6">
+        flex px-2 py-4 bg-gradient-to-b from-slate-900 from-80% to-slate-800 to-100% gap-1 w-full justify-between items-center fixed top-0 z-50 sm:px-16 sm:py-6">
             <Link href="/"
                 className="btn btn-ghost text-blue-50 p-1 text-xl btn-sm sm:btn-md ">
                 <Image src="/manimalism.png" width={30} height={30} alt="manimalism logo" className="scale-75" />
